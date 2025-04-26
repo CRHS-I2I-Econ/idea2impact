@@ -4,12 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="assets/css/font.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
 
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      defer
     />
 
     <!-- google fonts -->
@@ -24,31 +29,461 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+      defer
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+      defer
     />
 
     <!-- Fancybox CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+      defer
     />
 
     <link
       rel="shortcut icon"
       type="image/ico"
-      href="assets/images/favicon.png"
+      href="./crhs_assets/I2I-logo.png"
     />
-    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      :root {
+        --navbar-bg: #572a31;
+        --navlink-color: #ffffff;
+        --navlink-hover-color: #ffd6d6;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        font-family: "Roboto", sans-serif;
+        word-break: break-word;
+        position: relative;
+      }
+
+      /* start toggle btn  */
+
+      .toggler {
+        position: fixed !important;
+        top: 20px;
+        right: 20px;
+      }
+
+      /* end of toggle btn */
+
+      /* start of mobile-menu */
+      .mobile-menu-container {
+        position: fixed;
+
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        z-index: 98;
+        background-color: #572a31d2;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-link-container ul li {
+        background-color: transparent;
+        color: #fff;
+      }
+      .mobile-link-container ul li a {
+        color: #fff;
+      }
+
+      .mobile-menu-logo-container {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 10px;
+      }
+
+      .mobile-logo {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .mobile-logo img {
+        max-width: 125px;
+        height: auto;
+        object-fit: contain;
+      }
+      /* end of mobile menu */
+
+      /* header section start */
+
+      .header-section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 9;
+        background-color: var(--navbar-bg);
+        transition: all 0.3s ease;
+      }
+
+      .header-section.fixed-header {
+        position: fixed;
+        background-color: #572a31;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9;
+
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .club-logo a img {
+        max-width: 150px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .navbar-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-menu-container {
+        margin-left: auto;
+      }
+
+      .navbar-menu-container ul li {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 40px;
+      }
+
+      .navbar-menu-container ul li a {
+        color: var(--navlink-color);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 32px 0;
+        display: inline-block;
+        position: relative;
+        letter-spacing: 1px;
+
+        text-transform: uppercase;
+      }
+
+      .navbar-menu-container ul li a:before {
+        content: "";
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+      }
+
+      .navbar-menu-container ul li a:hover:before {
+        width: 100%;
+        transform: translateX(-50%);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .navbar-menu-container ul li a img {
+        max-width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+      .menu li a:hover,
+      .menu .active a {
+        color: var(--navlink-hover-color);
+      }
+
+      .menu .active a:before {
+        width: 100%;
+        transform: translateX(-50%);
+      }
+
+      /* header section end */
+
+      /* start hero section */
+
+      .hero-container {
+        background: linear-gradient(#572a31c0, #572a3193),
+          url("./crhs_assets/school_entrance.png") center center;
+        background-size: cover;
+        background-attachment: fixed;
+        padding: 250px 0;
+        position: relative;
+        z-index: 1;
+        height: 100dvh;
+      }
+
+      .hero-heading {
+        position: relative;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+
+      .hero-heading span.left-decor,
+      .hero-heading span.right-decor {
+        width: 30px;
+        height: 4px;
+        border-radius: 10px;
+        background-color: var(--primary-color);
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .hero-heading span.left-decor {
+        left: 0;
+      }
+      .hero-heading span.right-decor {
+        right: 0;
+      }
+
+      .hero-subheading {
+        font-size: 22px;
+        font-weight: 600;
+        color: var(--primary-color);
+        text-transform: capitalize;
+        text-align: center;
+        padding: 0 35px;
+        display: inline-block;
+      }
+
+      .hero-button {
+        margin-top: 35px;
+      }
+
+      .hero-button-btn {
+        min-width: 150px;
+        padding: 15px 20px;
+        display: inline-block;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--button-text-color);
+        text-transform: capitalize;
+        background-color: var(--button-hover-bg);
+        border: 1px solid #fff;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-button-btn:hover {
+        background: var(--button-bg);
+        color: var(--button-text-color);
+
+        transform: scale(1.02);
+        /* box-shadow: 5px 5px 15px #b6465f; */
+      }
+
+      button.hero-button-btn {
+        border: none;
+      }
+
+      .hero-button .hero-button-btn {
+        min-width: 200px;
+        font-size: 18px;
+      }
+
+      .tag-line {
+        font-family: tangerine, cursive;
+        font-size: 48px;
+        margin-top: 20px;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      /* end hero section */
+
+      /******************************************** 
+***********responsive styles **************
+*********************************************/
+
+      @media (min-width: 992px) {
+      }
+
+      @media (max-width: 1199px) {
+        .navbar-menu-container ul li {
+          margin-right: 10px;
+        }
+        .hero-container {
+          padding: 250px 0 80px 0;
+        }
+      }
+
+      @media (max-width: 991px) {
+        /* toggler */
+
+        .toggler {
+          display: block;
+          position: absolute;
+          right: 25px;
+          top: 75px;
+          cursor: pointer;
+          z-index: 99;
+        }
+
+        .toggler span {
+          width: 30px;
+          height: 4px;
+          background-color: #fff;
+          margin-bottom: 5px;
+          display: block;
+          margin-left: auto;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .club-logo {
+          width: 100%;
+          padding: 15px;
+          border-radius: 5px;
+          position: relative;
+        }
+
+        .club-logo a img {
+          max-width: 125px;
+        }
+
+        .navbar-menu-container ul {
+          display: none;
+        }
+
+        .hero-container .row {
+          flex-direction: column-reverse;
+        }
+
+        .hero-container::before {
+          display: none;
+        }
+        .hero-container {
+          padding: 250px 0 50px 0;
+        }
+
+        .hero-button {
+          margin-top: 20px;
+        }
+        .hero-button .hero-button-btn {
+          min-width: 150px;
+          font-size: 15px;
+        }
+
+        /* end of toggler */
+      }
+
+      @media (max-width: 767px) {
+        /* toggler */
+        .toggler {
+          top: 56px;
+        }
+        /* end toggler */
+
+        .club-logo a img {
+          max-width: 100px;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .toggler {
+          right: 15px;
+        }
+
+        .hero-container {
+          background-position: inherit;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .club-logo {
+          padding: 15px 0;
+          position: relative;
+        }
+
+        .club-logo a img {
+          max-width: 100px;
+          height: auto;
+        }
+
+        .hero-container span.left-decor,
+        .hero-container span.right-decor {
+          width: 20px;
+        }
+
+        .hero-subheading {
+          font-size: 18px;
+          font-weight: 500;
+          padding: 0 30px;
+        }
+
+        .hero-button-btn {
+          min-width: 130px;
+          padding: 10px 15px;
+          font-size: 15px;
+          font-weight: 400;
+        }
+      }
+
+      /******************************************** 
+*********** end responsive styles **************
+*********************************************/
+    </style>
+
     <!--=== custom css ===-->
-    <title>CRHS - Idea to Impact Club</title>
+
+    <!-- custom styles -->
+    <link rel="stylesheet" href="./custom_styles.css" />
+
+    <title>CRHS - Idea to Impact Club - Think Learn Change</title>
+
+    <meta
+      name="description"
+      content="A student-led club at CRHS where
+    economics, data analytics, and entrepreneurship meet real-world challenges
+    through research, leadership, and service."
+    />
+
+    <meta
+      name="keywords"
+      content="Idea To Impact Club, High School Club, Student Leadership, Data Analytics, Entrepreneurship, Community Service, Research Club, CRHS, Cinco Ranch High School"
+    />
   </head>
 
   <body>
+    <!-- join now button -->
+
+    <a
+      class="d-none d-md-block"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
+      ><div class="join-now-float">
+        <div class="cube">
+          <div class="face front">
+            <img class="float-logo" src="./crhs_assets/symbol.png" alt="Logo" />
+          </div>
+          <div class="face back">
+            <p>Join Us</p>
+          </div>
+        </div>
+      </div></a
+    >
+
+    <!-- goto top button -->
+
+    <a href="#home" class="gototop-btn d-lg-none">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
     <!-- mobile button -->
-    <div class="da-toggle-btn">
+    <div class="toggler">
       <span></span>
       <span></span>
       <span></span>
@@ -58,7 +493,10 @@
     <div class="mobile-menu-container">
       <div class="mobile-menu-logo-container">
         <div class="mobile-logo">
-          <img src="./crhs_assets/I2I-logo.png" alt="" />
+          <img
+            src="./crhs_assets/I2I-logo.png"
+            alt="idea to impace club Logo"
+          />
           <div class="ps-3">
             <h3 class="text-white">Idea To Impact Club</h3>
             <p class="text-white">Think. Learn. Change</p>
@@ -72,22 +510,32 @@
           </li>
 
           <li class="list-group-item">
-            <a href="#club-divisions">Club Divisions</a>
+            <a class="mo-navlinks" href="#club-divisions" offset-top="80"
+              >Club Divisions</a
+            >
           </li>
           <li class="list-group-item">
-            <a href="#activities">Activities</a>
+            <a class="mo-navlinks" href="#activities" offset-top="80"
+              >Activities</a
+            >
           </li>
           <li class="list-group-item">
-            <a href="#conference">Conference</a>
+            <a class="mo-navlinks" href="#conference" offset-top="80"
+              >Conference</a
+            >
           </li>
           <li class="list-group-item">
-            <a href="#resources">Resources</a>
+            <a class="mo-navlinks" href="#resources" offset-top="80"
+              >Resources</a
+            >
           </li>
           <li class="list-group-item">
-            <a href="#why-join">Why Join</a>
+            <a class="mo-navlinks" href="#why-join" offset-top="80">Why Join</a>
           </li>
           <li class="list-group-item">
-            <a href="#leadership">Leadership</a>
+            <a class="mo-navlinks" href="#leadership" offset-top="80"
+              >Leadership</a
+            >
           </li>
         </ul>
       </div>
@@ -96,53 +544,48 @@
     <!-- end mobile menu -->
 
     <!-- header section start -->
-    <div class="da-header-wrapper">
+    <div class="header-section">
       <div class="container">
-        <div class="da-header-parent">
-          <div class="da-header-inner">
-            <div class="da-brand-logo">
+        <div>
+          <div class="navbar-container">
+            <div class="club-logo">
               <a href="index.html"
                 ><img src="./crhs_assets/I2I-logo.png" alt="idea to impact"
               /></a>
             </div>
-            <div class="da-navbar-menu">
+            <div class="navbar-menu-container">
               <ul class="menu">
                 <li class="">
-                  <a href="#home" class="as-CommonClass-navbar" top-h="80"
-                    >Home</a
-                  >
+                  <a href="#home" class="navlink" offset-top="80">Home</a>
                 </li>
 
                 <li>
-                  <a
-                    href="#club-divisions"
-                    class="as-CommonClass-navbar"
-                    top-h="80"
+                  <a href="#club-divisions" class="navlink" offset-top="80"
                     >Club Divisions</a
                   >
                 </li>
                 <li>
-                  <a href="#activities" class="as-CommonClass-navbar" top-h="80"
+                  <a href="#activities" class="navlink" offset-top="80"
                     >Activities</a
                   >
                 </li>
                 <li>
-                  <a href="#conference" class="as-CommonClass-navbar" top-h="80"
+                  <a href="#conference" class="navlink" offset-top="80"
                     >Conference</a
                   >
                 </li>
                 <li>
-                  <a href="#resources" class="as-CommonClass-navbar" top-h="80"
+                  <a href="#resources" class="navlink" offset-top="80"
                     >Resources</a
                   >
                 </li>
                 <li>
-                  <a href="#why-join" class="as-CommonClass-navbar" top-h="80"
+                  <a href="#why-join" class="navlink" offset-top="80"
                     >Why Join</a
                   >
                 </li>
                 <li>
-                  <a href="#leadership" class="as-CommonClass-navbar" top-h="80"
+                  <a href="#leadership" class="navlink" offset-top="80"
                     >Leadership</a
                   >
                 </li>
@@ -154,15 +597,15 @@
     </div>
     <!-- header section end -->
     <!-- hero section start -->
-    <div class="da-banner-wrapper" id="home">
+    <div class="hero-container" id="home">
       <div class="container">
         <div class="row gy-4 align-items-center">
           <div class="col-12 text-center text-white">
             <div class="">
-              <div class="da-top-heading-div">
-                <span class="da-left bg-white"></span>
-                <span class="da-right bg-white"></span>
-                <h4 class="da-top-heading text-white">CRHS</h4>
+              <div class="hero-heading">
+                <span class="left-decor bg-white"></span>
+                <span class="right-decor bg-white"></span>
+                <h4 class="hero-subheading text-white">CRHS</h4>
               </div>
               <h1 class="text-white">
                 Welcome To <span> Idea</span> To Impact Club
@@ -170,10 +613,11 @@
               <p class="text-center tag-line text-white">
                 Think. Learn. Change.
               </p>
-              <div class="da-banner-btn">
+              <div class="hero-button">
                 <a
+                  target="_blank"
                   href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
-                  class="da-btn"
+                  class="hero-button-btn"
                   target="_blank"
                   >Join Now</a
                 >
@@ -188,37 +632,34 @@
     <!-- Our Mission -->
     <div class="our-mission" id="mission">
       <div class="container">
-        <div class="da-about-botm-parent">
-          <div class="row gy-4 align-items-center">
-            <div class="col-lg-6 col-md-12">
-              <div
-                class="da-about-left-img d-flex flex-column justify-content-center align-items-center"
-              >
-                <img
-                  src="./crhs_assets/i2ilogo-without-name-2.png"
-                  alt="image"
-                />
-                <h4 class="fw-bold" style="color: #572a31">Idea To Impact</h4>
-              </div>
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+            <div
+              class="d-flex flex-column justify-content-center align-items-center"
+            >
+              <img
+                class="section-image"
+                src="./crhs_assets/i2ilogo-without-name-2.png"
+                alt="idea to impact logo"
+              />
+              <h4 class="fw-bold" style="color: #572a31">Idea To Impact</h4>
             </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="da-about-right">
-                <div class="da-top-heading-div">
-                  <span class="da-left"></span>
-                  <span class="da-right"></span>
-                  <h4 class="da-top-heading">Learning That Leads to Change</h4>
-                </div>
-                <h2 class="da-heading">OUR MISSION</h2>
-                <p class="our-mission-para">
-                  <span>To</span> explore the real-world application of data
-                  analytics, AI, and entrepreneurship in solving real-world
-                  challenges, creating meaningful impact at our school and
-                  community, and students to think critically, act ethically,
-                  and innovate boldly
-                </p>
-                <!-- <a href="#" class="da-btn">read more</a> -->
-              </div>
+          </div>
+          <div class="col-lg-6 col-md-12 order-1 order-lg-2">
+            <div class="hero-heading">
+              <span class="left-decor"></span>
+              <span class="right-decor"></span>
+              <h4 class="hero-subheading">Learning That Leads to Change</h4>
             </div>
+            <h2 class="section-main-heading text-start">OUR MISSION</h2>
+            <p class="our-mission-para">
+              <span>To</span> explore the real-world application of data
+              analytics, AI, and entrepreneurship in solving real-world
+              challenges, creating meaningful impact at our school and
+              community, and students to think critically, act ethically, and
+              innovate boldly
+            </p>
+            <!-- <a href="#" class="da-btn">read more</a> -->
           </div>
         </div>
       </div>
@@ -226,42 +667,38 @@
     <!-- Our Mission End -->
 
     <!-- about section start -->
-    <div class="da-about-wrapper" id="about-us">
+    <div class="overview-section" id="about-us">
       <div class="container">
-        <div class="da-about-botm-parent">
-          <div class="row gy-4 align-items-center">
-            <div class="col-lg-6 col-md-12">
-              <div class="da-about-right">
-                <div class="da-top-heading-div">
-                  <span class="da-left"></span>
-                  <span class="da-right"></span>
-                  <h4 class="da-top-heading">Overview</h4>
-                </div>
-                <h2 class="da-heading">
-                  Where Curiosity Meets Real-World Action
-                </h2>
-                <p class="our-mission-para">
-                  This club at Cinco Ranch High School is a student-led club
-                  that blends academic curiosity with real-world action. Through
-                  research, outreach, and enterprise, members will explore how
-                  applied learnings intersects with business and community
-                  service to create impact..
-                </p>
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
-                  class="da-btn mt-5"
-                  >Join Us Now</a
-                >
-              </div>
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+            <div class="hero-heading">
+              <span class="left-decor"></span>
+              <span class="right-decor"></span>
+              <h4 class="hero-subheading">Overview</h4>
             </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="">
-                <img
-                  class="maroonify"
-                  src="./crhs_assets/Cinco-Ranch-High-School-3.jpg"
-                  alt="image"
-                />
-              </div>
+            <h2 class="section-main-heading text-start">
+              Where Curiosity Meets Real-World Action
+            </h2>
+            <p class="our-mission-para">
+              This club at Cinco Ranch High School is a student-led club that
+              blends academic curiosity with real-world action. Through
+              research, outreach, and enterprise, members will explore how
+              applied learnings intersects with business and community service
+              to create impact.
+            </p>
+            <a
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
+              class="hero-button-btn mt-5"
+              >Join Us</a
+            >
+          </div>
+          <div class="col-lg-6 col-md-12 order-1 order-lg-2">
+            <div class="">
+              <img
+                src="./crhs_assets/Cinco-Ranch-High-School-3.jpg"
+                alt="image"
+              />
             </div>
           </div>
         </div>
@@ -270,32 +707,27 @@
     <!-- about section end -->
 
     <!-- club divisions start -->
-    <div class="da-activity-wrapper" id="club-divisions">
+    <div class="club-divisions-section" id="club-divisions">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="da-activity-heading">
-              <div class="da-top-heading-div">
-                <span class="da-left"></span>
-                <span class="da-right"></span>
-                <h4 class="da-top-heading">club structure</h4>
-              </div>
-              <h2 class="da-heading">The Three Core Divisions</h2>
+          <div class="col-lg-12 text-center">
+            <div class="hero-heading">
+              <span class="left-decor"></span>
+              <span class="right-decor"></span>
+              <h4 class="hero-subheading">club structure</h4>
             </div>
+            <h2 class="section-main-heading">The Three Core Divisions</h2>
           </div>
         </div>
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6">
-            <div class="da-activity-box">
+            <div class="club-divisions-box">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/3-div-technology.png"
-                    alt="image"
+                  ><img src="./crhs_assets/3-div-technology.png" alt="image"
                 /></span>
               </div>
-              <div class="da-activity-inner">
+              <div class="club-divisions-content">
                 <h3>Technology</h3>
                 <ul>
                   <li>
@@ -317,16 +749,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-activity-box">
+            <div class="club-divisions-box">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/3-div-community.png"
-                    alt="image"
+                  ><img src="./crhs_assets/3-div-community.png" alt="image"
                 /></span>
               </div>
-              <div class="da-activity-inner">
+              <div class="club-divisions-content">
                 <h3>Community</h3>
                 <ul>
                   <li>
@@ -350,17 +779,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-activity-box">
+            <div class="club-divisions-box">
               <div class="box-container">
                 <span class="box-container-span">
-                  <img
-                    class="maroonify"
-                    src="./crhs_assets/3-div-business.png"
-                    alt="image"
-                  />
+                  <img src="./crhs_assets/3-div-business.png" alt="image" />
                 </span>
               </div>
-              <div class="da-activity-inner">
+              <div class="club-divisions-content">
                 <h3>Business</h3>
                 <ul>
                   <li>
@@ -386,31 +811,28 @@
     <!-- club divisions end -->
 
     <!-- activities start -->
-    <div class="da-project-wrapper" id="activities">
+    <div class="activities-section" id="activities">
       <div class="container">
-        <div class="da-activity-heading">
-          <div class="da-top-heading-div">
-            <span class="da-left"></span>
-            <span class="da-right"></span>
-            <h4 class="da-top-heading">Workshops & Competitions</h4>
+        <div class="activities-heading-container">
+          <div class="hero-heading">
+            <span class="left-decor"></span>
+            <span class="right-decor"></span>
+            <h4 class="hero-subheading">Workshops & Competitions</h4>
           </div>
-          <h2 class="da-heading">Key Activities</h2>
+          <h2 class="section-main-heading">Key Activities</h2>
         </div>
 
-        <h3 class="section-sub-heading">Learning</h3>
+        <h3 class="section-sub-heading text-center">Learning</h3>
 
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/learning-1.png"
-                    alt="image"
+                  ><img src="./crhs_assets/learning-1.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Participating in Innovation Challenges and Learning
                   Competitions
@@ -424,16 +846,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/learning-2.png"
-                    alt="image"
+                  ><img src="./crhs_assets/learning-2.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Study sessions and cross-collaboration with other academic
                   clubs.
@@ -442,36 +861,30 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/learning-3.png"
-                    alt="image"
+                  ><img src="./crhs_assets/learning-3.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>Workshops on digital tools and AI methods</h4>
               </div>
             </div>
           </div>
         </div>
 
-        <h3 class="section-sub-heading">Business</h3>
+        <h3 class="section-sub-heading text-center">Business</h3>
 
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/business-1.png"
-                    alt="image"
+                  ><img src="./crhs_assets/business-1.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Field visits to local businesses or municipal departments.
                 </h4>
@@ -479,16 +892,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/business-2.png"
-                    alt="image"
+                  ><img src="./crhs_assets/business-2.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Guest Sessions with Entrepreneurs and successful alumni.
                 </h4>
@@ -496,36 +906,30 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/business-3.png"
-                    alt="image"
+                  ><img src="./crhs_assets/business-3.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>Simulated Stock Market and Business Competitions</h4>
               </div>
             </div>
           </div>
         </div>
 
-        <h3 class="section-sub-heading">Community</h3>
+        <h3 class="section-sub-heading text-center">Community</h3>
 
         <div class="row gy-4 mb-5">
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/community-1.png"
-                    alt="image"
+                  ><img src="./crhs_assets/community-1.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Econ4Good Competition - proposing real solutions to community
                   issues.
@@ -534,16 +938,13 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/community-2.png"
-                    alt="image"
+                  ><img src="./crhs_assets/community-2.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>
                   Student-led research presentations and impact campaigns.
                 </h4>
@@ -551,23 +952,22 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="da-project-box">
+            <div class="activity-card">
               <div class="box-container">
                 <span class="box-container-span"
-                  ><img
-                    class="maroonify"
-                    src="./crhs_assets/community-3.png"
-                    alt="image"
+                  ><img src="./crhs_assets/community-3.png" alt="image"
                 /></span>
               </div>
-              <div class="da-project-content">
+              <div class="activity-card-content">
                 <h4>Hosting Awareness Campaigns and Donation Drives</h4>
               </div>
             </div>
           </div>
         </div>
 
-        <h3 class="section-sub-heading pt-5 mt-5">Planned Activities</h3>
+        <h3 class="section-sub-heading pt-5 mt-5 pb-5 text-center">
+          Planned Activities
+        </h3>
 
         <section class="gallery-slider">
           <div class="owl-carousel">
@@ -599,9 +999,9 @@
       </div>
     </div>
 
-    <div class="da-project-wrapper-2" id="conference">
+    <div class="activities-section-2" id="conference">
       <div class="container">
-        <h3 class="section-sub-heading">Conference</h3>
+        <h3 class="section-sub-heading text-center mb-5">Conference</h3>
         <h6 class="text-center lh-base">
           At the heart of our club is the spirit of learning, leading, and
           creating real-world change. We will launch a unique opportunity for
@@ -739,13 +1139,13 @@
 
     <!-- resources start -->
     <div class="resources-section pt-5 pb-5" id="resources">
-      <div class="da-activity-heading">
-        <div class="da-top-heading-div">
-          <span class="da-left"></span>
-          <span class="da-right"></span>
-          <h4 class="da-top-heading">Valuable tools to help you grow</h4>
+      <div class="activities-heading-container">
+        <div class="hero-heading">
+          <span class="left-decor"></span>
+          <span class="right-decor"></span>
+          <h4 class="hero-subheading">Valuable tools to help you grow</h4>
         </div>
-        <h2 class="da-heading">Resources</h2>
+        <h2 class="da-heading section-main-heading">Resources</h2>
       </div>
 
       <div class="container">
@@ -871,85 +1271,78 @@
     <!-- resources end -->
 
     <!-- why join -->
-    <div class="da-choose-wrapper" id="why-join">
+    <div class="why-join-container" id="why-join">
       <div class="container">
         <div class="row gy-4 align-items-center">
           <div
             class="col-lg-6 d-flex align-content-center justify-content-center"
           >
-            <div class="da-choose-img">
+            <div class="why-join-img">
               <a
                 target="_blank"
                 href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
-                ><img
-                  class="maroonify"
-                  src="./crhs_assets/why-join-us.png"
-                  alt="image"
+                ><img src="./crhs_assets/why-join-us.png" alt="image"
               /></a>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="da-choose-right-main">
-              <div class="da-choose-heading">
-                <div class="da-top-heading-div">
-                  <span class="da-left"></span>
-                  <span class="da-right"></span>
-                  <h4 class="da-top-heading">
-                    Where Purpose Meets Opportunity
+          <div class="col-lg-6 text-center">
+            <div class="hero-heading mt-5">
+              <span class="left-decor"></span>
+              <span class="right-decor"></span>
+              <h4 class="hero-subheading">Where Purpose Meets Opportunity</h4>
+            </div>
+            <h2 class="section-main-heading">Why It Matters to Be Here</h2>
+
+            <div class="row gy-4 mt-3">
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="why-join-cards">
+                  <span>
+                    <img src="./crhs_assets/why-join-1.png" alt="image" />
+                  </span>
+                  <h4>
+                    Deepen your understanding of real-world challenges and
+                    solutions
                   </h4>
                 </div>
-                <h2 class="da-heading">Why It Matters to Be Here</h2>
               </div>
-              <div class="row gy-4">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="da-choose-box">
-                    <span>
-                      <img src="./crhs_assets/why-join-1.png" alt="image" />
-                    </span>
-                    <h4>
-                      Deepen your understanding of real-world challenges and
-                      solutions
-                    </h4>
-                  </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="why-join-cards">
+                  <span>
+                    <img src="./crhs_assets/leadership.png" alt="image" />
+                  </span>
+                  <h4>
+                    Get hands-on experience in data, leadership, community
+                    services and business problems
+                  </h4>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="da-choose-box">
-                    <span>
-                      <img src="./crhs_assets/leadership.png" alt="image" />
-                    </span>
-                    <h4>
-                      Get hands-on experience in data, leadership, community
-                      services and business problems
-                    </h4>
-                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="why-join-cards">
+                  <span>
+                    <img src="./crhs_assets/graduation-cap.png" alt="image" />
+                  </span>
+                  <h4>
+                    Build a competitive profile for college and scholarships
+                  </h4>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="da-choose-box">
-                    <span>
-                      <img src="./crhs_assets/graduation-cap.png" alt="image" />
-                    </span>
-                    <h4>
-                      Build a competitive profile for college and scholarships
-                    </h4>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                  <div class="da-choose-box">
-                    <span>
-                      <img src="./crhs_assets/united.png" alt="image" />
-                    </span>
-                    <h4>
-                      Join a team passionate about solving problems that matter
-                      to humanity
-                    </h4>
-                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="why-join-cards">
+                  <span>
+                    <img src="./crhs_assets/united.png" alt="image" />
+                  </span>
+                  <h4>
+                    Join a team passionate about solving problems that matter to
+                    humanity
+                  </h4>
                 </div>
               </div>
             </div>
 
             <a
+              target="_blank"
               href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
-              class="da-btn mt-5 text-center w-100"
+              class="hero-button-btn mt-5 text-center w-100"
               >Join Us</a
             >
           </div>
@@ -959,22 +1352,20 @@
     <!-- why join end -->
 
     <!-- leadership  start -->
-    <div class="da-partner-wrapper pb-5" id="leadership">
+    <div class="leadership-section pb-5" id="leadership">
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
-            <div class="da-activity-heading">
-              <div class="da-top-heading-div">
-                <span class="da-left"></span>
-                <span class="da-right"></span>
-                <h4 class="da-top-heading">The Team Behind the Mission</h4>
-              </div>
-              <h2 class="da-heading">Leadership</h2>
+          <div class="col-lg-12 text-center">
+            <div class="hero-heading">
+              <span class="left-decor"></span>
+              <span class="right-decor"></span>
+              <h4 class="hero-subheading">The Team Behind the Mission</h4>
             </div>
+            <h2 class="section-main-heading">Leadership</h2>
           </div>
         </div>
         <div
-          class="key-profiles mt-5 d-flex flex-wrap justify-content-center align-items-center gap-5"
+          class="mt-5 d-flex flex-wrap justify-content-center align-items-center gap-5"
         >
           <!-- team card -->
           <div class="card">
@@ -1014,7 +1405,7 @@
               <img
                 src="./crhs_assets/rohan-card.webp"
                 class="card-img-top"
-                alt="..."
+                alt="Rohan Jha"
               />
               <div class="card-body">
                 <h5 class="card-title">Rohan Jha</h5>
@@ -1153,35 +1544,34 @@
     <!-- leadership end -->
 
     <!-- news & circulars start -->
-    <div class="da-blog-wrapper" id="news">
-      <div class="container">
-        <div class="da-blog-heading">
-          <div class="da-top-heading-div">
-            <span class="da-left"></span>
-            <span class="da-right"></span>
-            <h4 class="da-top-heading">Club News</h4>
-          </div>
-          <h2 class="da-heading">Notices & Circulars</h2>
+    <div class="news-section" id="news">
+      <div class="container text-center">
+        <div class="hero-heading">
+          <span class="left-decor"></span>
+          <span class="right-decor"></span>
+          <h4 class="hero-subheading">Club News</h4>
         </div>
-        <div class="container">
+        <h2 class="section-main-heading">Notices & Circulars</h2>
+
+        <div class="container mt-5">
           <ul class="list-group">
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
               Notice - 1 - Date
-              <button class="da-btn p-2">Download Notice</button>
+              <button class="hero-button-btn p-2">Download Notice</button>
             </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
               Notice - 2 - Date
-              <button class="da-btn p-2">Download Notice</button>
+              <button class="hero-button-btn p-2">Download Notice</button>
             </li>
             <li
               class="list-group-item d-flex justify-content-between align-items-center"
             >
               Notice - 3 - Date
-              <button class="da-btn p-2">Download Notice</button>
+              <button class="hero-button-btn p-2">Download Notice</button>
             </li>
           </ul>
         </div>
@@ -1190,101 +1580,76 @@
     <!-- news & circulars end -->
 
     <!-- footer section start -->
-    <div class="da-footer-wrapper">
+    <div class="footer-container">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-4 col-md-12 mb-md-3">
-            <div class="da-footer-first">
-              <div class="da-footer-logo">
-                <a href="#home">
-                  <img src="./crhs_assets/I2I-logo.png" alt="image" />
-                </a>
-              </div>
-              <div class="da-footer-text">
-                <p class="tag-line text-white fs-2">Think. Learn. Change.</p>
-              </div>
-              <div class="da-footer-icon">
-                <ul>
-                  <li>
-                    <a href=""
-                      ><img src="assets/images/fb.png" alt="image"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href=""
-                      ><img src="assets/images/tw.png" alt="image"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href=""
-                      ><img src="assets/images/insta.png" alt="image"
-                    /></a>
-                  </li>
-                  <li>
-                    <a href=""
-                      ><img src="assets/images/wa.png" alt="image"
-                    /></a>
-                  </li>
-                </ul>
-              </div>
+            <div class="footer-logo">
+              <a href="#home">
+                <img src="./crhs_assets/I2I-logo.png" alt="image" />
+              </a>
+            </div>
+
+            <p class="tag-line text-white fs-2">Think. Learn. Change.</p>
+
+            <div class="footer-social-links">
+              <ul>
+                <li>
+                  <a href=""><img src="./crhs_assets/fb.png" alt="image" /></a>
+                </li>
+                <li>
+                  <a href=""><img src="./crhs_assets/tw.png" alt="image" /></a>
+                </li>
+                <li>
+                  <a href=""
+                    ><img src="./crhs_assets/insta.png" alt="image"
+                  /></a>
+                </li>
+                <li>
+                  <a href=""><img src="./crhs_assets/wa.png" alt="image" /></a>
+                </li>
+              </ul>
             </div>
           </div>
           <div class="col-lg-2 col-md-6 col-12">
-            <div class="da-footer-link-parent">
-              <div class="da-footer-linda-heading">
-                <h2 class="da-heading">quick links</h2>
+            <div class="footer-links-container">
+              <div>
+                <h2 class="footer-heading">Quick Links</h2>
               </div>
-              <div class="da-footer-link">
+              <div class="footer-links">
                 <ul>
                   <li>
-                    <a href="#home" class="as-CommonClass-navbar" top-h="80"
-                      >Home</a
-                    >
+                    <a href="#home" class="navlink" offset-top="80">Home</a>
                   </li>
 
                   <li>
-                    <a
-                      href="#club-divisions"
-                      class="as-CommonClass-navbar"
-                      top-h="80"
+                    <a href="#club-divisions" class="navlink" offset-top="80"
                       >Club Divisions</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#activities"
-                      class="as-CommonClass-navbar"
-                      top-h="80"
+                    <a href="#activities" class="navlink" offset-top="80"
                       >Activities</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#conference"
-                      class="as-CommonClass-navbar"
-                      top-h="80"
+                    <a href="#conference" class="navlink" offset-top="80"
                       >Conference</a
                     >
                   </li>
                   <li>
-                    <a
-                      href="#resources"
-                      class="as-CommonClass-navbar"
-                      top-h="80"
+                    <a href="#resources" class="navlink" offset-top="80"
                       >Resources</a
                     >
                   </li>
                   <li>
-                    <a href="#news" class="as-CommonClass-navbar" top-h="80"
+                    <a href="#news" class="navlink" offset-top="80"
                       >News & Circulars</a
                     >
                   </li>
 
                   <li>
-                    <a
-                      href="#leadership"
-                      class="as-CommonClass-navbar"
-                      top-h="80"
+                    <a href="#leadership" class="navlink" offset-top="80"
                       >Leadership</a
                     >
                   </li>
@@ -1294,38 +1659,33 @@
           </div>
 
           <div class="col-12 col-lg-6 col-md-6">
-            <div class="da-footer-last-parent">
-              <div class="da-footer-linda-heading">
-                <h2 class="da-heading">Send Us a Message</h2>
-              </div>
-              <div class="da-footer-form">
-                <form>
-                  <div class="mt_popup_form">
-                    <div class="mt_popup_form_container">
-                      <div class="mt_form_input">
-                        <input
-                          id="enquiry_name"
-                          name="enquiry_name"
-                          type="text"
-                          placeholder="Enter Your Name Here..."
-                        />
-                      </div>
-                      <div class="mt_form_input">
-                        <input
-                          id="enquiry_message"
-                          name="enquiry_message"
-                          type="text"
-                          placeholder="Enter Your Message Here"
-                        />
-                      </div>
-                    </div>
-                    <button type="button" class="enquiry-btn">
-                      Send Inquiry
-                    </button>
-                  </div>
-                </form>
-              </div>
+            <div>
+              <h2 class="footer-heading">Send Us a Message</h2>
             </div>
+
+            <form
+              action="https://formsubmit.co/crhs.i2i.econ@gmail.com"
+              method="POST"
+              class="iq-form"
+            >
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Enter Your Name Here..."
+              />
+
+              <input
+                id="message"
+                name="message"
+                type="text"
+                placeholder="Enter Your Message Here"
+              />
+
+              <button type="submit" class="enquiry-btn w-100">
+                Send Inquiry
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -1333,11 +1693,11 @@
     <!-- footer section end -->
 
     <!-- copyright section start -->
-    <div class="da-copyright-wrapper ps-2 pe-2">
+    <div class="copyright-section ps-2 pe-2">
       <div>
         <p>
-          Copyright © <span>2025</span>
-          <a href="#home">Idea To Impact Club.</a> All Rights Reserved.
+          Copyright © &nbsp; <span class="copy-year"></span> &nbsp;
+          <a href="#home">Idea To Impact Club.</a> &nbsp; All Rights Reserved.
         </p>
       </div>
       <div>
@@ -1354,18 +1714,35 @@
     </div>
     <!-- copyright section end -->
     <!--=== Optional JavaScript ===-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/SmoothScroll.min.js"></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      defer
+    ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      defer
+    ></script>
 
     <!-- Owl Carousel JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+      defer
+    ></script>
 
     <!-- Fancybox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"
+      defer
+    ></script>
     <!--=== Optional JavaScript ===-->
-    <script src="assets/js/custom.js"></script>
+    <script src="./custom.js" defer></script>
   </body>
 </html>
