@@ -90,7 +90,7 @@
         top: 0;
         left: -100%;
         z-index: 98;
-        background-color: #572a31d2;
+        background-color: #572a31;
         transition: all 0.3s ease;
       }
 
@@ -313,9 +313,6 @@
 ***********responsive styles **************
 *********************************************/
 
-      @media (min-width: 992px) {
-      }
-
       @media (max-width: 1199px) {
         .navbar-menu-container ul li {
           margin-right: 10px;
@@ -348,7 +345,6 @@
         }
 
         .club-logo {
-          width: 100%;
           padding: 15px;
           border-radius: 5px;
           position: relative;
@@ -435,6 +431,16 @@
           font-weight: 400;
         }
       }
+      @media (max-width: 420px) {
+        .header-text-mobile h3 {
+          font-size: 1.2rem !important;
+        }
+      }
+      @media (max-width: 380px) {
+        .header-text-mobile h3 {
+          font-size: 1.1rem !important;
+        }
+      }
 
       /******************************************** 
 *********** end responsive styles **************
@@ -458,6 +464,24 @@
     <meta
       name="keywords"
       content="Idea To Impact Club, High School Club, Student Leadership, Data Analytics, Entrepreneurship, Community Service, Research Club, CRHS, Cinco Ranch High School"
+    />
+    <meta
+      property="og:title"
+      content="CRHS - Idea to Impact Club - Think Learn Change"
+    />
+    <meta
+      property="og:description"
+      content="A student-led club at CRHS where
+      economics, data analytics, and entrepreneurship meet real-world challenges
+      through research, leadership, and service."
+    />
+    <meta
+      property="og:image"
+      content="./crhs_assets/Cinco-Ranch-High-School-3.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://crhs-i2i-econ.github.io/idea2impact/"
     />
   </head>
 
@@ -503,7 +527,7 @@
           />
           <div class="ps-3">
             <h3 class="text-white">Idea To Impact Club</h3>
-            <p class="text-white">Think. Learn. Change</p>
+            <p class="text-white tag-line fs-1 mt-0">Think. Learn. Change</p>
           </div>
         </div>
       </div>
@@ -536,12 +560,19 @@
           <li class="list-group-item">
             <a class="mo-navlinks" href="#why-join" offset-top="80">Why Join</a>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item border-bottom">
             <a class="mo-navlinks" href="#leadership" offset-top="80"
               >Leadership</a
             >
           </li>
         </ul>
+        <div class="ps-3 mt-3">
+          <a
+            class="bg-white pt-2 pb-2 ps-3 pe-3 text-center text-dark rounded-3"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSejN4RDv_N9YLX5RtFivRzzMTYat-0ljHlKqSn_drUquvEvbg/viewform?usp=sharing"
+            >Join Us</a
+          >
+        </div>
       </div>
     </div>
 
@@ -550,51 +581,51 @@
     <!-- header section start -->
     <div class="header-section">
       <div class="container">
-        <div>
-          <div class="navbar-container">
-            <div class="club-logo">
-              <a href="index.html"
-                ><img src="./crhs_assets/I2I-logo.png" alt="idea to impact"
-              /></a>
-            </div>
-            <div class="navbar-menu-container">
-              <ul class="menu">
-                <li class="">
-                  <a href="#home" class="navlink" offset-top="80">Home</a>
-                </li>
+        <div class="navbar-container">
+          <div class="club-logo">
+            <a href="index.html"
+              ><img src="./crhs_assets/I2I-logo.png" alt="idea to impact"
+            /></a>
+          </div>
+          <div class="ps-3 d-lg-none header-text-mobile">
+            <h3 class="text-white">Idea To Impact Club</h3>
+            <p class="text-white tag-line fs-1 mt-0">Think. Learn. Change</p>
+          </div>
+          <div class="navbar-menu-container">
+            <ul class="menu">
+              <li class="">
+                <a href="#home" class="navlink" offset-top="80">Home</a>
+              </li>
 
-                <li>
-                  <a href="#club-divisions" class="navlink" offset-top="80"
-                    >Club Divisions</a
-                  >
-                </li>
-                <li>
-                  <a href="#activities" class="navlink" offset-top="80"
-                    >Activities</a
-                  >
-                </li>
-                <li>
-                  <a href="#conference" class="navlink" offset-top="80"
-                    >Conference</a
-                  >
-                </li>
-                <li>
-                  <a href="#resources" class="navlink" offset-top="80"
-                    >Resources</a
-                  >
-                </li>
-                <li>
-                  <a href="#why-join" class="navlink" offset-top="80"
-                    >Why Join</a
-                  >
-                </li>
-                <li>
-                  <a href="#leadership" class="navlink" offset-top="80"
-                    >Leadership</a
-                  >
-                </li>
-              </ul>
-            </div>
+              <li>
+                <a href="#club-divisions" class="navlink" offset-top="80"
+                  >Club Divisions</a
+                >
+              </li>
+              <li>
+                <a href="#activities" class="navlink" offset-top="80"
+                  >Activities</a
+                >
+              </li>
+              <li>
+                <a href="#conference" class="navlink" offset-top="80"
+                  >Conference</a
+                >
+              </li>
+              <li>
+                <a href="#resources" class="navlink" offset-top="80"
+                  >Resources</a
+                >
+              </li>
+              <li>
+                <a href="#why-join" class="navlink" offset-top="80">Why Join</a>
+              </li>
+              <li>
+                <a href="#leadership" class="navlink" offset-top="80"
+                  >Leadership</a
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1674,7 +1705,7 @@
     <div class="footer-container">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-4 col-md-12 mb-md-3">
+          <div class="col-12 col-lg-4 col-md-12 mb-5">
             <div class="footer-logo">
               <a href="#home">
                 <img
@@ -1753,7 +1784,7 @@
             </div>
           </div>
 
-          <div class="col-12 col-lg-6 col-md-6">
+          <div class="col-12 col-lg-6 col-md-6 mt-5 mt-md-0">
             <div>
               <h2 class="footer-heading">Send Us a Message</h2>
             </div>
